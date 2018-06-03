@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href=
+  "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link href="user-admin.style.client.css" rel="stylesheet" />
+
+<title>Insert title here</title>
+  <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+
+  <script src="../../services/user.service.client.js"></script>
+  <script src="user-admin.controller.client.js"></script>
+
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="index.html">Webdev</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="3">Courses <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Assignments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Other</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Other</a>
+            </li>
+        </ul>
+         <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">14 <i class="fa fa-envelope"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">8 <i class="fa fa-eye"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">1 <i class="fa fa-bullhorn"></i></a>
+            </li>
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="http://www.torneodj.com/files/avatar/2_120.jpg" class="img-fluid rounded-circle z-depth-0" width="30"></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-purple" aria-labelledby="navbarDropdownMenuLink-5">
+                    <a class="dropdown-item whov" href="#"><i class="fa fa-plus"></i> Agregar post</a>
+                    <a class="dropdown-item whov" href="#"><i class="fa fa-edit"></i> Editar cuenta</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+</header>
+<div class="container">
+  <h1 id="title">User Admin</h1>
+
+ 
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="findById">@</span>
+  </div>
+  <input type="text" class="form-control" placeholder="User ID" aria-label="Username" aria-describedby="findById">
+    <span class="float-right" style="white-space: nowrap">
+      <i id='searchUserById' class="fa-2x fa fa-search wbdv-search"></i> 
+ 	 </span>
+</div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>&nbsp;</th>
+        <th></th>
+      </tr>
+      <tr>
+        <th><input id="usernameFld" class="form-control" placeholder="jdoe"/></th>
+        <th><input id="passwordFld" class="form-control" type="password"/></th>
+        <th><input id="firstNameFld" class="form-control" placeholder="John"/></th>
+        <th><input id="lastNameFld" class="form-control" placeholder="Doe"/></th>
+        <th>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="usertype-faculty" name="usertype-faculty" class="custom-control-input">
+            <label class="custom-control-label" for="usertype-faculty">Faculty</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="usertype-student" name="usertype-faculty" class="custom-control-input">
+            <label class="custom-control-label" for="usertype-student">Student</label>
+        </div>
+      </th>
+        <th><button id="createUser" class="btn btn-success">Create</button></th>
+      </tr>
+    </thead>
+    <tbody class="wbdv-tbody">
+     <tr class="template">
+      <td class="wbdv-username">ada</td>
+      <td>&nbsp;</td>
+      <td class="wbdv-first-name">Ada</td>
+      <td class="wbdv-last-name">Lovelace</td>
+      <td class="wbdv-role">FACULTY</td>
+      <th class="wbdv-actions">
+        <span class="float-right">
+          <button class="delete btn btn-danger">Delete</button>
+          <button class="edit btn btn-danger">Edit</button> 
+        </span>
+      </th>
+   </tr>
+ </tbody>
+
+    <tfoot></tfoot>
+  </table>
+  
+</body>
+</html>

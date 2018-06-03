@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"/>
+<link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+<link href="profile.style.client.css" rel="stylesheet" />
+<title>Insert title here</title>
+  <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+   
+  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script src="../../services/user.service.client.js"></script>
+  <script src="profile.controller.client.js"></script>
+
+</head>
+<body>
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="index.html">Webdev</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="3">Courses <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Assignments</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Other</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Other</a>
+            </li>
+        </ul>
+         <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">14 <i class="fa fa-envelope"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">8 <i class="fa fa-eye"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">1 <i class="fa fa-bullhorn"></i></a>
+            </li>
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="http://www.torneodj.com/files/avatar/2_120.jpg" class="img-fluid rounded-circle z-depth-0" width="30"></a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-purple" aria-labelledby="navbarDropdownMenuLink-5">
+                    <a class="dropdown-item whov" href="#"><i class="fa fa-plus"></i> Agregar post</a>
+                    <a class="dropdown-item whov" href="#"><i class="fa fa-edit"></i> Editar cuenta</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+</header>
+
+
+ <div class="tab-pane" id="profile">
+ <h1 id="title">Profile</h1>
+<div class="control-group">
+    <form>
+    
+      <div id="template" class="form-group row">
+        <label for="profile-username" class="col-sm-2 col-form-label">Username</label>
+        <div class="col-sm-10">
+          <input type="text" readonly class="form-control" id="profile-username" placeholder="username" value="username" readonly>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="profile-firstname" class="col-sm-2 col-form-label">First Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="profile-firstname" placeholder="First Name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="profile-lastname" class="col-sm-2 col-form-label">Last Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="profile-lastname" placeholder="Last Name">
+        </div>
+      </div>
+      
+      <div class="form-group row">
+        <label for="profile-phone" class="col-sm-2 col-form-label">Phone</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="profile-phone" placeholder="Phone">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="profile-email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="profile-email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group row">
+     	 <label for="inputRole" class="col-sm-2 col-form-label">Role</label>
+     	 <div class="col-sm-10">
+      		<select id="inputRole" class="form-control">
+        		<option selected>student</option>
+        		<option>faculty</option>
+      	</select>
+      	</div>
+    </div>
+    
+      
+      <div class="form-group row">
+  		<label for="dob" 
+  			   class="col-sm-2 col-form-label">Date Of Birth</label>
+  	<div class="col-sm-10">
+    <input class="form-control" type="date" value="2011-08-19" id="dob">
+ 		 </div>
+	</div>
+
+      <button id="updateBtn"
+              type="button"
+              class="btn btn-success btn-block">Update</button>
+      <button id="logoutBtn"	
+      		  type="button" 
+      		  class="btn btn-danger btn-block">Logout</button>
+    </form>
+
+  </div>
+  </div>
+</body>
+</html>

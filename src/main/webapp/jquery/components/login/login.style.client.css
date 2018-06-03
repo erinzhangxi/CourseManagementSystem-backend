@@ -1,0 +1,11 @@
+body {
+    margin: 40px auto;
+}
+
+header{
+	padding: 40px;	
+}
+
+#loginbox {
+	max-width: 70%;
+}
