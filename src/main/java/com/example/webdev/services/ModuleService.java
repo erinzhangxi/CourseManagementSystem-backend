@@ -65,11 +65,12 @@ public class ModuleService {
 	}
 	
 	@GetMapping("/api/module")
-	public List<Module> findAllModules()
+	public Iterable<Module> findAllModules()
 	{
-		return (List<Module>) moduleRepository.findAll();
+		return moduleRepository.findAll();
 	}
 	
+
 	@GetMapping("/api/module/{moduleId}")
 	public Module findModuleByID(
 			@PathVariable("moduleId") int moduleId) {
