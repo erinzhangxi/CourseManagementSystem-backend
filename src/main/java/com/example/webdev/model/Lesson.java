@@ -23,14 +23,26 @@ public class Lesson {
 	@NotFound(action = NotFoundAction.IGNORE)
 	@JsonIgnore
 	private Module module;
+	
 	@OneToMany(mappedBy="lesson")
 	@JsonIgnore
 	private List<Widget> widgets;
+	
 	@OneToMany(mappedBy="lesson")
 	@JsonIgnore
 	private List<Assignment> assignments;
+	
+	@OneToMany(mappedBy="lesson")
+	@JsonIgnore
+	private List<Exam> exams;
 	public List<Assignment> getAssignments() {
 		return assignments;
+	}
+	public List<Exam> getExams() {
+		return exams;
+	}
+	public void setExams(List<Exam> exams) {
+		this.exams = exams;
 	}
 	public void setAssignments(List<Assignment> assignments) {
 		this.assignments = assignments;

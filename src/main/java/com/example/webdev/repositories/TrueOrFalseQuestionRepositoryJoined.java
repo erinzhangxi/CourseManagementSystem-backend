@@ -4,7 +4,4 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.example.webdev.model.TrueFalseQuestion;
 
-public interface TrueFalseQuestionRepository
-extends CrudRepository<TrueFalseQuestion, Integer> {
-
-}
+public interface TrueOrFalseQuestionRepositoryJoined extends CrudRepository<TrueFalseQuestion, Integer>{}
