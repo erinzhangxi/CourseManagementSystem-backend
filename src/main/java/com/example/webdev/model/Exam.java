@@ -21,6 +21,7 @@ public class Exam extends Widget {
 	@JsonIgnore
 	private List<Question> questions;
 	
+	
 	public String getTitle() {
 		return title;
 	}

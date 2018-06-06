@@ -15,6 +15,7 @@ import com.example.webdev.model.EssayExamQuestion;
 import com.example.webdev.model.Exam;
 import com.example.webdev.model.FillInTheBlanksExamQuestion;
 import com.example.webdev.model.MultipleChoiceQuestion;
+import com.example.webdev.model.Question;
 import com.example.webdev.model.TrueFalseQuestion;
 import com.example.webdev.repositories.ExamRepository;
 import com.example.webdev.repositories.EssayExamRepositoryJoined;
@@ -55,7 +56,8 @@ public class ServiceJoined {
 //	public EssayExamQuestion getEssays(@PathVariable("examId") int id) {
 //		Optional<Exam> data = examRepo.findById(id);
 //		if(data.isPresent()) {
-//			List<EssayExamQuestion> essays = data.getEssays();
+//			
+//			List<Question> essays = data.getQuestions();
 //			exam.getEssay(exam);
 //			return essayRepo.save(essay);
 //		}

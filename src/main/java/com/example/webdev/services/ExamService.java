@@ -63,6 +63,16 @@ public class ExamService {
 		}
 		return null;		
 	}
+	@GetMapping("/api/lesson/{lessonId}/exam/{examId}/essays")
+	public List<Question> findAllEssaysForExam(@PathVariable("lessonId") int lessonId, 
+												@PathVariable("examId") int examId) {
+		Optional<Exam> data = repository.findById(examId);
+		if(data.isPresent()) {
+			Exam e = data.get();
+			return e.getQuestions();
+		}
+		return null;		
+	}
 	
 	
 	@PostMapping("/api/lesson/{lessonId}/exam")
