@@ -74,7 +74,6 @@ public class ExamService {
 		return null;		
 	}
 	
-	
 	@PostMapping("/api/lesson/{lessonId}/exam")
 	public Exam createExam(
 			@PathVariable("lessonId") int lessonId,
