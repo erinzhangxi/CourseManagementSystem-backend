@@ -24,8 +24,14 @@ public class Module {
 	@JsonIgnore
 	private Course course;
 	@OneToMany(mappedBy="module")
+	@JsonIgnore
 	private List<Lesson> lessons;
-	
+	public List<Lesson> getLessons() {
+		return lessons;
+	}
+	public void setLessons(List<Lesson> lessons) {
+		this.lessons = lessons;
+	}
 	public int getId() {
 		return id;
 	}
@@ -43,11 +49,5 @@ public class Module {
 	}
 	public void setCourse(Course course) {
 		this.course = course;
-	}
-	public List<Lesson> getLessons() {
-		return this.lessons;
-	}
-	public void setLessons(List<Lesson> lessons) {
-		this.lessons = lessons;
 	}
 }

@@ -7,12 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import com.example.webdev.model.Module;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Course {
@@ -25,6 +24,7 @@ public class Course {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date modified;
 	@OneToMany(mappedBy="course")
+	@JsonIgnore
 	private List<Module> modules;
 	public int getId() {
 		return id;

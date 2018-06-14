@@ -20,18 +20,31 @@ import com.example.webdev.repositories.CourseRepository;
 import com.example.webdev.repositories.LessonRepository;
 import com.example.webdev.repositories.ModuleRepository;
 
+
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "*")
 public class LessonService {
 	@Autowired
-	CourseRepository courseRepository;
-
+	LessonRepository lessonRepository;
 	@Autowired
 	ModuleRepository moduleRepository;
-	
 	@Autowired
-	LessonRepository lessonRepository;
+	CourseRepository courseRepository;
 	
+	@GetMapping("/api/lesson")
+	public List<Lesson> findAllLessons() {
+		return (List<Lesson>) lessonRepository.findAll();
+	}
+	
+	@GetMapping("/api/course/{cid}/module/{mid}/lesson")
+	public List<Lesson> findForModule(@PathVariable(name="mid") int moduleId) {
+		Optional<Module> optionalModule = moduleRepository.findById(moduleId);
+		if(optionalModule.isPresent()) {
+			Module module = optionalModule.get();
+			return (List<Lesson>) module.getLessons();
+		}
+		return null;
+	}
 	@PostMapping("/api/course/{courseId}/module/{moduleId}/lesson")
 	public Lesson createLesson(
 			@PathVariable("courseId") int courseId,
@@ -48,7 +61,6 @@ public class LessonService {
 		}
 		return null;		
 	}
-	
 	@DeleteMapping("/api/course/{courseId}/module/{moduleId}/lesson/{lessonId}")
 	public void deleteLesson(
 			@PathVariable("courseId") int courseId,
@@ -67,23 +79,4 @@ public class LessonService {
 		}
 	}
 	
-	
-	@GetMapping("/api/course/{courseId}/module/{moduleId}/lesson")
-	public List<Lesson> findAllLessonsForModule(
-			@PathVariable("courseId") int courseId,
-			@PathVariable("moduleId") int moduleId) {
-		Optional<Module> data = moduleRepository.findModuleById(moduleId);
-		if(data.isPresent()) {
-			Module mod = data.get();
-			return mod.getLessons();
-		}
-		return null;		
-	}
-	
-	
-	@GetMapping("/api/lesson")
-	public List<Lesson> findAllLessons()
-	{
-		return (List<Lesson>) lessonRepository.findAll();
-	}
 }
