@@ -33,8 +33,7 @@
         console.log("User ID: ");
         console.log(userId);
         
-        findUserById(userId)
-        		.then(renderUser);
+        findUserById(userId);
     }
 
     function retrieveID() {
@@ -73,7 +72,7 @@
     function findUserById(userId) {
         userService
             .findUserById(userId)
-            .then(renderUser);
+            .then(renderUser);;
     }
     
     function renderUser(user) {

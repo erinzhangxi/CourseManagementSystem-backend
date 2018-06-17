@@ -10,7 +10,7 @@ function User(username, password, email, firstName, lastName, phone, role, dateO
   this.firstName = firstName;
   this.lastName = lastName;
   this.phone = phone;
-  this.role = role;
+  this.dtype = role;
   this.dateOfBirth = dateOfBirth;
 
   this.setUsername = setUsername;

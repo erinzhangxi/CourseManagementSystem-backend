@@ -23,12 +23,19 @@ public class User {
 	private String role;
 	private String email;
 	private String phone;
+	
 	public User() {
 		
 	}
-	public User(String username, String password) {
+	public User(String username, String password, String email, String firstName, String lastName,String phone, String dtype, Date dateOfBirth ) {
 		this.username = username;
 		this.password = password;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phone = phone;
+		this.role = dtype;
+		this.dateOfBirth = dateOfBirth;
 	}
 	public int getId() {
 		return id;

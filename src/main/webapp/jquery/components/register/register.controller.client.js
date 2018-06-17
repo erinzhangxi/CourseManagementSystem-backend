@@ -19,8 +19,7 @@
 			  } else 
 			    $('#message').html('Not Matching').css('color', 'red');
 			});
-		
-		
+
 		if ($("#usertype-1").is(":checked")) {
 			$userType = "faculty";
 		}
@@ -35,35 +34,44 @@
 	function register() {
 		console.log('register');
 		var user = {
-				username: $usernameFld.val(),
-				password: $passwordFld.val(),
-				email: $emailFld.val(), 
-				role: $userType
-		};
+                username: $usernameFld.val(),
+           		password:  $passwordFld.val(),
+            	email: $emailFld.val(),
+				firstName: null,
+            	lastName: null,
+            	phone: null,
+            	dtype: $userType,
+            	dateOfBirth: null
+   		 };
 		console.log(user);
+
 		
-//		userService
-//			.findById(user)
-//			.then(function(response) {
-//				console.log(response);
-//                window.location.href = "/jquery/components/profile/profile.template.client.html?userId=" + response.id
-//			})
-		
-		userService.findUserByUsername(user.username)
-			.then(function (response) { 
-				console.log(response);
-				if(response.status == 400) {
-					console.log("400 ERROR RESPONSE");
-						userService.createUser(user)
-						.then(function (response) {
-							console.log(response.id);
-							window.location.href = "/jquery/components/profile/profile.template.client.html?userId=" + response.id
-						})
-				} else	{
-					console.log("User already exists");
-					alert("Username already exists.");
-				}})
+		// userService.findUserByUsername(user.username)
+		// 	.then(function (response) {
+		// 		console.log(response);
+		// 		if(response.status == 400) {
+		// 			console.log("400 ERROR RESPONSE");
+		// 				userService.createUser(user)
+		// 				.then(function (response) {
+		// 					console.log(response.id);
+		// 					window.location.href = "/jquery/components/profile/profile.template.client.html?userId=" + response.id
+		// 				})
+		// 		} else	{
+		// 			console.log("User already exists");
+		// 			alert("Username already exists.");
+		// 		}})
+        userService.register(user).then(success);
 
 		}
+
+    function success(response) {
+        if (response === null) {
+            $('#error5').show();
+        }
+        else {
+        	console.log(response);
+            window.location.href = "/jquery/components/profile/profile.template.client.html?userId=" + response.id;
+        }
+    }
 	
 })();

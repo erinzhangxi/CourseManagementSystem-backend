@@ -3,6 +3,7 @@ package com.example.webdev.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +25,9 @@ import com.example.webdev.repositories.UserRepository;
 public class UserService {
 	@Autowired
 	UserRepository repository;
+	
+	@Autowired
+	private HttpSession session;
 
 	@DeleteMapping("/api/user/{userId}")
 	public void deleteUser(@PathVariable("userId") int id) {
@@ -63,17 +67,6 @@ public class UserService {
 		return null;
 	}
 
-	@PostMapping("api/user/{username}")
-	public User findUserByUsername(@PathVariable("username") String username, HttpServletResponse response) {
-		Optional<User> data = repository.findUserByUsername(username);
-		if(data.isPresent()) {
-			return data.get();
-		}
-		else {
-			response.setStatus(HttpServletResponse.SC_CONFLICT);
-			return null;
-		}
-	}
 
 	@PostMapping("/api/login")
 	public User login(@RequestBody User user, HttpServletResponse response) {
@@ -88,6 +81,23 @@ public class UserService {
 	        response.setStatus(HttpServletResponse.SC_CONFLICT);
 	        return null;
 		 
+	}
+	
+	@PostMapping("/api/register")
+	public User register(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+		List<User> users = (List<User>) repository.findUserByUsername(user.getUsername());
+		if (users.isEmpty()) {
+			session = request.getSession();
+			session.setAttribute("currentUser", user);
+			repository.save(user);
+			return user;
+		} else {
+			//response.setStatus(10);
+			response.setStatus(HttpServletResponse.SC_CONFLICT);
+			return null;
+		}
+	
+
 	}
 	
 	@GetMapping("/api/session/invalidate")
