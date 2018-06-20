@@ -38,6 +38,14 @@ public class Lesson {
 	public List<Assignment> getAssignments() {
 		return assignments;
 	}
+	
+	@OneToMany(mappedBy="lesson")
+	@JsonIgnore
+	private List<Topic> topics;
+	public List<Topic> getTopics() {
+		return topics;
+	}
+	
 	public List<Exam> getExams() {
 		return exams;
 	}

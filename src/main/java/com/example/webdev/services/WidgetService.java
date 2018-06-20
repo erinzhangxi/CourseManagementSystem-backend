@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.webdev.model.Lesson;
+import com.example.webdev.model.Topic;
 import com.example.webdev.model.Widget;
 import com.example.webdev.repositories.LessonRepository;
+import com.example.webdev.repositories.TopicRepository;
 import com.example.webdev.repositories.WidgetRepository;
 
 @RestController
@@ -22,13 +24,15 @@ public class WidgetService {
 	WidgetRepository repository;
 	@Autowired
 	LessonRepository lessonRepository;
+	@Autowired
+	TopicRepository topicRepository;
 
-	@GetMapping("/api/lesson/{lessonId}/widget")
-	public List<Widget> findAllWidgetsForLesson(@PathVariable("lessonId") int lessonId) {
-		Optional<Lesson> optionalLesson = lessonRepository.findById(lessonId);
-		if(optionalLesson.isPresent()) {
-			Lesson lesson = optionalLesson.get();
-			return lesson.getWidgets();
+	@GetMapping("/api/topic/{topic}/widget")
+	public List<Widget> findAllWidgetsForLesson(@PathVariable("topicId") int topicId) {
+		Optional<Topic> optionalTopic = topicRepository.findById(topicId);
+		if(optionalTopic.isPresent()) {
+			Topic topic = optionalTopic.get();
+			return topic.getWidgets();
 		}
 		return null;
 	}
